@@ -57,15 +57,9 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
         }}
       >
         <Logo />
-
-        <NavAccount />
       </Stack>
 
       <NavSectionVertical data={navConfig} />
-
-      <Box sx={{ flexGrow: 1 }} />
-
-      <NavDocs />
     </Scrollbar>
   );
 
@@ -77,8 +71,6 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
         width: { lg: NAV.W_DASHBOARD },
       }}
     >
-      <NavToggleButton />
-
       {isDesktop ? (
         <Drawer
           open
