@@ -40,4 +40,6 @@ const navBottomMenuList = [
   },
 ];
 
-export { navTopMenuList, navBottomMenuList };
+const navMenuList = [...navTopMenuList, ...navBottomMenuList];
+
+export { navTopMenuList, navBottomMenuList, navMenuList };

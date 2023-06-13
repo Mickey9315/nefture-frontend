@@ -9,7 +9,7 @@ import { bgBlur } from '../../../utils/cssStyles';
 // components
 import { NavSectionHorizontal } from '../../../components/nav-section';
 //
-import navTopMenuList from './config-navigation';
+import { navMenuList } from './config-navigation';
 
 // ----------------------------------------------------------------------
 
@@ -32,7 +32,7 @@ function NavHorizontal() {
           }),
         }}
       >
-        <NavSectionHorizontal data={navTopMenuList} />
+        <NavSectionHorizontal data={navMenuList} />
       </Toolbar>
 
       <Shadow />

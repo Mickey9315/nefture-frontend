@@ -3,37 +3,31 @@ import { styled } from '@mui/material/styles';
 import { useState } from 'react';
 import Image from 'src/components/image/Image';
 
-const StyledBox = styled(Box)(({ theme }) => {
-  return {
-    height: 40,
-    borderRadius: '14px',
-    background: '#1A1B1F',
-    boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
-    display: 'flex',
-    alignItems: 'center',
-  };
-});
+const StyledBox = styled(Box)(({ theme }) => ({
+  height: 40,
+  borderRadius: '14px',
+  background: '#1A1B1F',
+  boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+  display: 'flex',
+  alignItems: 'center',
+}));
 
-const StyledSelect = styled(Select)(({ theme }) => {
-  return {
-    height: '100%',
-    background: 'transparent',
-    border: 0,
-    '.MuiOutlinedInput-notchedOutline': { border: 0 },
-    '& .MuiSelect-select': { padding: '8px', paddingRight: '32px' },
-    '& .MuiOutlinedInput-notchedOutline': { borderColor: 'transparent' },
-    '& .MuiSvgIcon-root': { color: theme.palette.common.white },
-  };
-});
+const StyledSelect = styled(Select)(({ theme }) => ({
+  height: '100%',
+  background: 'transparent',
+  border: 0,
+  '.MuiOutlinedInput-notchedOutline': { border: 0 },
+  '& .MuiSelect-select': { padding: '8px', paddingRight: '32px' },
+  '& .MuiOutlinedInput-notchedOutline': { borderColor: 'transparent' },
+  '& .MuiSvgIcon-root': { color: theme.palette.common.white },
+}));
 
-const StyledTypography = styled(Typography)(({ theme }) => {
-  return {
-    fontSize: '16px',
-    fontWeight: '700',
-    lineHeight: '20px',
-    color: theme.palette.common.white,
-  };
-});
+const StyledTypography = styled(Typography)(({ theme }) => ({
+  fontSize: '16px',
+  fontWeight: '700',
+  lineHeight: '20px',
+  color: theme.palette.common.white,
+}));
 
 function BalanceContainer() {
   const networks = [
