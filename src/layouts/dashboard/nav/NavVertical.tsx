@@ -57,10 +57,9 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
       <Box>
         <NavSectionVertical data={navTopMenuList} />
       </Box>
-      <Box>
+      <Box sx={{ mb: '96px' }}>
         <NavSupscription />
         <NavSectionVertical data={navBottomMenuList} />
-        <Box sx={{ height: 96 }}></Box>
       </Box>
     </Scrollbar>
   );

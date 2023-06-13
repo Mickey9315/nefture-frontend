@@ -13,7 +13,7 @@ import Header from './header';
 import NavMini from './nav/NavMini';
 import NavVertical from './nav/NavVertical';
 import NavHorizontal from './nav/NavHorizontal';
-import { HEADER } from 'src/config-global';
+import { HEADER } from '../../config-global';
 
 // ----------------------------------------------------------------------
 
