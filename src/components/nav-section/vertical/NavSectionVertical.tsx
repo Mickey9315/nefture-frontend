@@ -18,7 +18,7 @@ export default function NavSectionVertical({ data, sx, ...other }: NavSectionPro
         const key = group.subheader || group.items[0].title;
 
         return (
-          <List key={key} disablePadding sx={{ px: 1.5 }}>
+          <List key={key} disablePadding sx={{ px: 1.25 }}>
             {group.items.map((list) => (
               <NavList
                 key={list.title + list.path}

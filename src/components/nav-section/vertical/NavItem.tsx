@@ -56,6 +56,7 @@ export default function NavItem({
           noWrap: true,
           variant: 'caption',
         }}
+        sx={{ '& span': { fontSize: '15px', fontWeight: '500', lineHeight: '20px' } }}
       />
 
       {info && (

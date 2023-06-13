@@ -12,10 +12,11 @@ import Logo from '../../../components/logo';
 import Scrollbar from '../../../components/scrollbar';
 import { NavSectionVertical } from '../../../components/nav-section';
 //
-import navConfig from './config-navigation';
+import { navTopMenuList, navBottomMenuList } from './config-navigation';
 import NavDocs from './NavDocs';
 import NavAccount from './NavAccount';
 import NavToggleButton from './NavToggleButton';
+import NavSupscription from './NavSubscription';
 
 // ----------------------------------------------------------------------
 
@@ -39,15 +40,28 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
   const renderContent = (
     <Scrollbar
       sx={{
-        height: 1,
+        height: `calc(100% - ${HEADER.H_DASHBOARD_DESKTOP}px)`,
+        py: 1.25,
         '& .simplebar-content': {
           height: 1,
           display: 'flex',
           flexDirection: 'column',
+          justifyContent: 'space-between',
+          '&:before, &:after': {
+            content: 'unset',
+            display: 'none',
+          },
         },
       }}
     >
-      <NavSectionVertical data={navConfig} />
+      <Box>
+        <NavSectionVertical data={navTopMenuList} />
+      </Box>
+      <Box>
+        <NavSupscription />
+        <NavSectionVertical data={navBottomMenuList} />
+        <Box sx={{ height: 96 }}></Box>
+      </Box>
     </Scrollbar>
   );
 
@@ -68,10 +82,8 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
               zIndex: 0,
               width: NAV.W_DASHBOARD,
               bgcolor: 'transparent',
-              borderRightStyle: 'dashed',
               top: HEADER.H_DASHBOARD_DESKTOP,
               bottom: 0,
-              py: 1.5,
             },
           }}
         >

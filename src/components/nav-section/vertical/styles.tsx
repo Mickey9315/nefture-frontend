@@ -35,8 +35,7 @@ export const StyledItem = styled(ListItemButton, {
   return {
     position: 'relative',
     textTransform: 'capitalize',
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(1.5),
+    padding: theme.spacing(1.5),
     marginBottom: theme.spacing(0.5),
     color: theme.palette.text.secondary,
     borderRadius: theme.shape.borderRadius,
@@ -83,6 +82,7 @@ export const StyledIcon = styled(ListItemIcon)({
   justifyContent: 'center',
   width: ICON.NAV_ITEM,
   height: ICON.NAV_ITEM,
+  marginRight: '8px',
 });
 
 // ----------------------------------------------------------------------

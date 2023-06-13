@@ -18,9 +18,7 @@ const ICONS = {
   faq: icon('faq'),
 };
 
-const navConfig = [
-  // GENERAL
-  // ----------------------------------------------------------------------
+const navTopMenuList = [
   {
     subheader: 'Top',
     items: [
@@ -29,6 +27,9 @@ const navConfig = [
       { title: 'Nefture +', path: PATH.nefture, icon: ICONS.nefture },
     ],
   },
+];
+
+const navBottomMenuList = [
   {
     subheader: 'Bottom',
     items: [
@@ -39,4 +40,4 @@ const navConfig = [
   },
 ];
 
-export default navConfig;
+export { navTopMenuList, navBottomMenuList };
