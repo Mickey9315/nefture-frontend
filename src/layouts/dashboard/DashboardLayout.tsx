@@ -13,6 +13,7 @@ import Header from './header';
 import NavMini from './nav/NavMini';
 import NavVertical from './nav/NavVertical';
 import NavHorizontal from './nav/NavHorizontal';
+import { HEADER } from 'src/config-global';
 
 // ----------------------------------------------------------------------
 
@@ -79,6 +80,7 @@ export default function DashboardLayout({ children }: Props) {
 
         <Box
           sx={{
+            pt: `${HEADER.H_DASHBOARD_DESKTOP}px`,
             display: { lg: 'flex' },
             minHeight: { lg: 1 },
           }}

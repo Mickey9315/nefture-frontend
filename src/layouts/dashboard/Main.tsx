@@ -44,10 +44,9 @@ export default function Main({ children, sx, ...other }: BoxProps) {
       component="main"
       sx={{
         flexGrow: 1,
-        py: `${HEADER.H_MOBILE + SPACING}px`,
+        pl: '40px',
+        pr: '76px',
         ...(isDesktop && {
-          px: 2,
-          py: `${HEADER.H_DASHBOARD_DESKTOP + SPACING}px`,
           width: `calc(100% - ${NAV.W_DASHBOARD}px)`,
           ...(isNavMini && {
             width: `calc(100% - ${NAV.W_DASHBOARD_MINI}px)`,

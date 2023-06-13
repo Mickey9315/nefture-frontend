@@ -40,16 +40,7 @@ export default function Header({ onOpenNav }: Props) {
 
   const renderContent = (
     <>
-      {isDesktop && isNavHorizontal && <Logo sx={{ mr: 2.5 }} />}
-
-      {!isDesktop && (
-        <IconButton onClick={onOpenNav} sx={{ mr: 1, color: 'text.primary' }}>
-          <Iconify icon="eva:menu-2-fill" />
-        </IconButton>
-      )}
-
-      <Searchbar />
-
+      {isDesktop && <Logo />}
       <Stack
         flexGrow={1}
         direction="row"
@@ -57,13 +48,7 @@ export default function Header({ onOpenNav }: Props) {
         justifyContent="flex-end"
         spacing={{ xs: 0.5, sm: 1.5 }}
       >
-        <LanguagePopover />
-
         <NotificationsPopover />
-
-        <ContactsPopover />
-
-        <AccountPopover />
       </Stack>
     </>
   );
@@ -71,24 +56,24 @@ export default function Header({ onOpenNav }: Props) {
   return (
     <AppBar
       sx={{
+        borderWidth: '1px 1px 1px 0px',
+        borderStyle: 'solid',
+        borderColor: 'rgba(255, 255, 255, 0.12)',
         boxShadow: 'none',
         height: HEADER.H_MOBILE,
         zIndex: theme.zIndex.appBar + 1,
-        ...bgBlur({
-          color: theme.palette.background.default,
-        }),
+        bgcolor: 'rgba(255, 255, 255, 0.02)',
         transition: theme.transitions.create(['height'], {
           duration: theme.transitions.duration.shorter,
         }),
         ...(isDesktop && {
-          width: `calc(100% - ${NAV.W_DASHBOARD + 1}px)`,
+          width: `100%`,
           height: HEADER.H_DASHBOARD_DESKTOP,
           ...(isOffset && {
             height: HEADER.H_DASHBOARD_DESKTOP_OFFSET,
           }),
           ...(isNavHorizontal && {
             width: 1,
-            bgcolor: 'background.default',
             height: HEADER.H_DASHBOARD_DESKTOP_OFFSET,
             borderBottom: `dashed 1px ${theme.palette.divider}`,
           }),
@@ -101,7 +86,8 @@ export default function Header({ onOpenNav }: Props) {
       <Toolbar
         sx={{
           height: 1,
-          px: { lg: 5 },
+          px: { lg: '20px' },
+          py: { lg: '18px' },
         }}
       >
         {renderContent}

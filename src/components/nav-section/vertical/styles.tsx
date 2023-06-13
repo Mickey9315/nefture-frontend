@@ -22,9 +22,8 @@ export const StyledItem = styled(ListItemButton, {
 
   const activeStyle = {
     color: theme.palette.primary.main,
-    backgroundColor: alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity),
     ...(!isLight && {
-      color: theme.palette.primary.light,
+      color: 'white',
     }),
   };
 

@@ -6,7 +6,7 @@ import { Box, Stack, Drawer } from '@mui/material';
 // hooks
 import useResponsive from '../../../hooks/useResponsive';
 // config
-import { NAV } from '../../../config-global';
+import { HEADER, NAV } from '../../../config-global';
 // components
 import Logo from '../../../components/logo';
 import Scrollbar from '../../../components/scrollbar';
@@ -47,18 +47,6 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
         },
       }}
     >
-      <Stack
-        spacing={3}
-        sx={{
-          pt: 3,
-          pb: 2,
-          px: 2.5,
-          flexShrink: 0,
-        }}
-      >
-        <Logo />
-      </Stack>
-
       <NavSectionVertical data={navConfig} />
     </Scrollbar>
   );
@@ -81,6 +69,9 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
               width: NAV.W_DASHBOARD,
               bgcolor: 'transparent',
               borderRightStyle: 'dashed',
+              top: HEADER.H_DASHBOARD_DESKTOP,
+              bottom: 0,
+              py: 1.5,
             },
           }}
         >
