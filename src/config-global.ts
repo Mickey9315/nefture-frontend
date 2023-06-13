@@ -1,5 +1,5 @@
 // routes
-import { PATH_DASHBOARD } from './routes/paths';
+import { PATH } from './routes/paths';
 
 // API
 // ----------------------------------------------------------------------
@@ -29,25 +29,25 @@ export const AUTH0_API = {
 export const MAP_API = process.env.MAPBOX_API;
 
 // ROOT PATH AFTER LOGIN SUCCESSFUL
-export const PATH_AFTER_LOGIN = PATH_DASHBOARD.one;
+export const PATH_AFTER_LOGIN = PATH.dashboard;
 
 // LAYOUT
 // ----------------------------------------------------------------------
 
 export const HEADER = {
   H_MOBILE: 64,
-  H_MAIN_DESKTOP: 88,
-  H_DASHBOARD_DESKTOP: 92,
-  H_DASHBOARD_DESKTOP_OFFSET: 92 - 32,
+  H_MAIN_DESKTOP: 76,
+  H_DASHBOARD_DESKTOP: 76,
+  H_DASHBOARD_DESKTOP_OFFSET: 76 - 32,
 };
 
 export const NAV = {
-  W_BASE: 260,
-  W_LARGE: 320,
-  W_DASHBOARD: 280,
+  W_BASE: 232,
+  W_LARGE: 232,
+  W_DASHBOARD: 232,
   W_DASHBOARD_MINI: 88,
   //
-  H_DASHBOARD_ITEM: 48,
+  H_DASHBOARD_ITEM: 44,
   H_DASHBOARD_ITEM_SUB: 36,
   //
   H_DASHBOARD_ITEM_HORIZONTAL: 32,

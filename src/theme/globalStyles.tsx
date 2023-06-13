@@ -22,6 +22,8 @@ export default function GlobalStyles() {
           padding: 0,
           width: '100%',
           height: '100%',
+          background:
+            'linear-gradient(180deg, rgba(41, 101, 255, 0.1) 0%, rgba(41, 101, 255, 0) 51.64%), linear-gradient(0deg, #292929, #292929), #FFFFFF',
         },
         '#__next': {
           width: '100%',

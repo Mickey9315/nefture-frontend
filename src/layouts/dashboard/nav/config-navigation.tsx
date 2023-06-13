@@ -1,5 +1,5 @@
 // routes
-import { PATH_DASHBOARD } from '../../../routes/paths';
+import { PATH } from '../../../routes/paths';
 // components
 import SvgColor from '../../../components/svg-color';
 
@@ -10,39 +10,31 @@ const icon = (name: string) => (
 );
 
 const ICONS = {
-  user: icon('ic_user'),
-  ecommerce: icon('ic_ecommerce'),
-  analytics: icon('ic_analytics'),
-  dashboard: icon('ic_dashboard'),
+  dashboard: icon('dashboard'),
+  wallets: icon('wallets'),
+  nefture: icon('nefture'),
+  networks: icon('networks'),
+  settings: icon('settings'),
+  faq: icon('faq'),
 };
 
 const navConfig = [
   // GENERAL
   // ----------------------------------------------------------------------
   {
-    subheader: 'general v4.3.0',
+    subheader: 'Top',
     items: [
-      { title: 'One', path: PATH_DASHBOARD.one, icon: ICONS.dashboard },
-      { title: 'Two', path: PATH_DASHBOARD.two, icon: ICONS.ecommerce },
-      { title: 'Three', path: PATH_DASHBOARD.three, icon: ICONS.analytics },
+      { title: 'Dashboard', path: PATH.dashboard, icon: ICONS.dashboard },
+      { title: 'Wallets', path: PATH.wallets, icon: ICONS.wallets },
+      { title: 'Nefture +', path: PATH.nefture, icon: ICONS.nefture },
     ],
   },
-
-  // MANAGEMENT
-  // ----------------------------------------------------------------------
   {
-    subheader: 'management',
+    subheader: 'Bottom',
     items: [
-      {
-        title: 'user',
-        path: PATH_DASHBOARD.user.root,
-        icon: ICONS.user,
-        children: [
-          { title: 'Four', path: PATH_DASHBOARD.user.four },
-          { title: 'Five', path: PATH_DASHBOARD.user.five },
-          { title: 'Six', path: PATH_DASHBOARD.user.six },
-        ],
-      },
+      { title: 'Networks', path: PATH.networks, icon: ICONS.networks },
+      { title: 'Settings', path: PATH.settings, icon: ICONS.settings },
+      { title: 'FAQ', path: PATH.faq, icon: ICONS.faq },
     ],
   },
 ];
