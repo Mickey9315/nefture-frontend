@@ -18,6 +18,8 @@ import AccountPopover from './AccountPopover';
 import LanguagePopover from './LanguagePopover';
 import ContactsPopover from './ContactsPopover';
 import NotificationsPopover from './NotificationsPopover';
+import BalanceContainer from './BalanceContainer';
+import HelpPopover from './HelpPopover';
 
 // ----------------------------------------------------------------------
 
@@ -46,9 +48,11 @@ export default function Header({ onOpenNav }: Props) {
         direction="row"
         alignItems="center"
         justifyContent="flex-end"
-        spacing={{ xs: 0.5, sm: 1.5 }}
+        spacing={{ xs: 0.5, sm: 1.5, lg: 2.5 }}
       >
+        <BalanceContainer />
         <NotificationsPopover />
+        <HelpPopover />
       </Stack>
     </>
   );

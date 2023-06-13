@@ -29,12 +29,10 @@ import { IconButtonAnimate } from '../../../components/animate';
 
 // ----------------------------------------------------------------------
 
-export default function NotificationsPopover() {
-  const [notifications, setNotifications] = useState(_notifications);
+export default function HelpPopover() {
+  const [faqs, setFaqs] = useState(_notifications);
 
   const [openPopover, setOpenPopover] = useState<HTMLElement | null>(null);
-
-  const totalUnRead = notifications.filter((item) => item.isUnRead === true).length;
 
   const handleOpenPopover = (event: React.MouseEvent<HTMLElement>) => {
     setOpenPopover(event.currentTarget);
@@ -44,15 +42,6 @@ export default function NotificationsPopover() {
     setOpenPopover(null);
   };
 
-  const handleMarkAllAsRead = () => {
-    setNotifications(
-      notifications.map((notification) => ({
-        ...notification,
-        isUnRead: false,
-      }))
-    );
-  };
-
   return (
     <>
       <IconButtonAnimate
@@ -60,28 +49,14 @@ export default function NotificationsPopover() {
         onClick={handleOpenPopover}
         sx={{ width: 40, height: 40, mx: '-8px' }}
       >
-        <Badge badgeContent={totalUnRead} color="error">
-          <Iconify icon="uil:bell" />
-        </Badge>
+        <Iconify icon="mingcute:question-fill" />
       </IconButtonAnimate>
 
       <MenuPopover open={openPopover} onClose={handleClosePopover} sx={{ width: 360, p: 0 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', py: 2, px: 2.5 }}>
           <Box sx={{ flexGrow: 1 }}>
-            <Typography variant="subtitle1">Notifications</Typography>
-
-            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              You have {totalUnRead} unread messages
-            </Typography>
+            <Typography variant="subtitle1">FAQ</Typography>
           </Box>
-
-          {totalUnRead > 0 && (
-            <Tooltip title=" Mark all as read">
-              <IconButton color="primary" onClick={handleMarkAllAsRead}>
-                <Iconify icon="eva:done-all-fill" />
-              </IconButton>
-            </Tooltip>
-          )}
         </Box>
 
         <Divider sx={{ borderStyle: 'dashed' }} />
@@ -95,8 +70,8 @@ export default function NotificationsPopover() {
               </ListSubheader>
             }
           >
-            {notifications.slice(0, 2).map((notification) => (
-              <NotificationItem key={notification.id} notification={notification} />
+            {faqs.slice(0, 2).map((notification) => (
+              <FaqItem key={notification.id} faq={notification} />
             ))}
           </List>
 
@@ -108,8 +83,8 @@ export default function NotificationsPopover() {
               </ListSubheader>
             }
           >
-            {notifications.slice(2, 5).map((notification) => (
-              <NotificationItem key={notification.id} notification={notification} />
+            {faqs.slice(2, 5).map((notification) => (
+              <FaqItem key={notification.id} faq={notification} />
             ))}
           </List>
         </Scrollbar>
@@ -128,7 +103,7 @@ export default function NotificationsPopover() {
 
 // ----------------------------------------------------------------------
 
-type NotificationItemProps = {
+type FaqItemProps = {
   id: string;
   title: string;
   description: string;
@@ -138,8 +113,8 @@ type NotificationItemProps = {
   isUnRead: boolean;
 };
 
-function NotificationItem({ notification }: { notification: NotificationItemProps }) {
-  const { avatar, title } = renderContent(notification);
+function FaqItem({ faq }: { faq: FaqItemProps }) {
+  const { avatar, title } = renderContent(faq);
 
   return (
     <ListItemButton
@@ -147,7 +122,7 @@ function NotificationItem({ notification }: { notification: NotificationItemProp
         py: 1.5,
         px: 2.5,
         mt: '1px',
-        ...(notification.isUnRead && {
+        ...(faq.isUnRead && {
           bgcolor: 'action.selected',
         }),
       }}
@@ -162,7 +137,7 @@ function NotificationItem({ notification }: { notification: NotificationItemProp
         secondary={
           <Stack direction="row" sx={{ mt: 0.5, typography: 'caption', color: 'text.disabled' }}>
             <Iconify icon="eva:clock-fill" width={16} sx={{ mr: 0.5 }} />
-            <Typography variant="caption">{fToNow(notification.createdAt)}</Typography>
+            <Typography variant="caption">{fToNow(faq.createdAt)}</Typography>
           </Stack>
         }
       />
@@ -172,42 +147,42 @@ function NotificationItem({ notification }: { notification: NotificationItemProp
 
 // ----------------------------------------------------------------------
 
-function renderContent(notification: NotificationItemProps) {
+function renderContent(faq: FaqItemProps) {
   const title = (
     <Typography variant="subtitle2">
-      {notification.title}
+      {faq.title}
       <Typography component="span" variant="body2" sx={{ color: 'text.secondary' }}>
-        &nbsp; {noCase(notification.description)}
+        &nbsp; {noCase(faq.description)}
       </Typography>
     </Typography>
   );
 
-  if (notification.type === 'order_placed') {
+  if (faq.type === 'order_placed') {
     return {
-      avatar: <img alt={notification.title} src="/assets/icons/notification/ic_package.svg" />,
+      avatar: <img alt={faq.title} src="/assets/icons/notification/ic_package.svg" />,
       title,
     };
   }
-  if (notification.type === 'order_shipped') {
+  if (faq.type === 'order_shipped') {
     return {
-      avatar: <img alt={notification.title} src="/assets/icons/notification/ic_shipping.svg" />,
+      avatar: <img alt={faq.title} src="/assets/icons/notification/ic_shipping.svg" />,
       title,
     };
   }
-  if (notification.type === 'mail') {
+  if (faq.type === 'mail') {
     return {
-      avatar: <img alt={notification.title} src="/assets/icons/notification/ic_mail.svg" />,
+      avatar: <img alt={faq.title} src="/assets/icons/notification/ic_mail.svg" />,
       title,
     };
   }
-  if (notification.type === 'chat_message') {
+  if (faq.type === 'chat_message') {
     return {
-      avatar: <img alt={notification.title} src="/assets/icons/notification/ic_chat.svg" />,
+      avatar: <img alt={faq.title} src="/assets/icons/notification/ic_chat.svg" />,
       title,
     };
   }
   return {
-    avatar: notification.avatar ? <img alt={notification.title} src={notification.avatar} /> : null,
+    avatar: faq.avatar ? <img alt={faq.title} src={faq.avatar} /> : null,
     title,
   };
 }
